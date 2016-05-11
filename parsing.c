@@ -6,11 +6,53 @@
 /*   By: mabuchwa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/29 11:31:36 by mabuchwa          #+#    #+#             */
-/*   Updated: 2016/05/11 15:08:46 by mabuchwa         ###   ########.fr       */
+/*   Updated: 2016/05/11 18:48:18 by mabuchwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+int		check_map(char *str)
+{
+	int		i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!((str[i] >= '0' || str[i] <= '9') 
+					|| str[i] == ' ' || str[i] == '\n'))
+				return (1);
+		i++;
+	}
+	return (0);
+}
+
+void	check_file(char *file)
+{
+	int		fd;
+	char	*buff;
+	int		ret;
+	int		size;
+
+	fd = open(file, O_RDONLY);
+	if (fd == -1)
+	{
+		perror("Fdf");
+		exit(1);
+	}
+	buff = (char *)ft_strnew(200);
+	size = 0;
+	while ((ret = read(fd, buff, 200)) > 0)
+	{
+		if (ret == -1)
+		{
+			perror("Fdf");
+			exit(1);
+		}
+	}
+	close(fd);
+	free(buff);
+}
 
 t_map	*get_coor(t_win *w, t_lst *lst)
 {
@@ -48,6 +90,7 @@ t_map	*ft_parsing(t_win *w)
 
 	w->map_h = 0;
 	lst = NULL;
+	check_file(w->path);
 	if (!(w->fd = open(w->path, O_RDONLY)))
 		exit(0);
 	while ((i = get_next_line(w->fd, &line)) > 0)
@@ -56,6 +99,8 @@ t_map	*ft_parsing(t_win *w)
 		new->data = line;
 		new->next = NULL;
 		lst_pushback(&lst, new);
+		if ((w->ok = check_map(new->data)) == 0)
+			exit(1);
 		w->map_h++;
 	}
 	close(w->fd);
