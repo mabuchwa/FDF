@@ -6,25 +6,26 @@
 /*   By: mabuchwa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/29 11:31:36 by mabuchwa          #+#    #+#             */
-/*   Updated: 2016/05/11 18:48:18 by mabuchwa         ###   ########.fr       */
+/*   Updated: 2016/05/19 11:20:23 by mabuchwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int		check_map(char *str)
+void	check_map(char *str)
 {
 	int		i;
 
 	i = 0;
 	while (str[i])
 	{
-		if (!((str[i] >= '0' || str[i] <= '9') 
-					|| str[i] == ' ' || str[i] == '\n'))
-				return (1);
+		if ((ft_isdigit(str[i]) == 0) && str[i] != ' ')
+		{
+			perror("Fdf");
+			exit(1);
+		}
 		i++;
 	}
-	return (0);
 }
 
 void	check_file(char *file)
@@ -99,8 +100,7 @@ t_map	*ft_parsing(t_win *w)
 		new->data = line;
 		new->next = NULL;
 		lst_pushback(&lst, new);
-		if ((w->ok = check_map(new->data)) == 0)
-			exit(1);
+		check_map(new->data);
 		w->map_h++;
 	}
 	close(w->fd);
