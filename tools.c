@@ -6,7 +6,7 @@
 /*   By: mabuchwa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/21 14:17:51 by mabuchwa          #+#    #+#             */
-/*   Updated: 2016/05/26 16:11:51 by mabuchwa         ###   ########.fr       */
+/*   Updated: 2016/05/26 17:09:01 by mabuchwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	get_height(t_lst *lst, t_map *map)
 	i = 0;
 	tab = ft_strsplit(lst->data, ' ');
 	map->line = (int*)malloc(sizeof(int) * (map->size));
-	while (i < map->size)
+	while (tab[i])
 	{
 		map->line[i] = ft_atoi(tab[i]);
 		i++;
@@ -60,7 +60,7 @@ int		tab_len(t_lst *lst)
 
 	i = 0;
 	tab = ft_strsplit(lst->data, ' ');
-	while (tab[i + 1])
+	while (tab[i])
 		i++;
 	freedom(tab);
 	return (i);

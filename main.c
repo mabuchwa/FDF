@@ -6,7 +6,7 @@
 /*   By: mabuchwa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 13:43:40 by mabuchwa          #+#    #+#             */
-/*   Updated: 2016/05/26 16:46:35 by mabuchwa         ###   ########.fr       */
+/*   Updated: 2016/05/26 17:09:51 by mabuchwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,5 @@ int		main(int ac, char **av)
 	}
 	if (ac < 2)
 		ft_putstr("Insert Map\n");
-	else
-		write(1, "\n", 1);
 	return (0);
 }
