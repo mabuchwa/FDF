@@ -6,7 +6,7 @@
 /*   By: mabuchwa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 11:56:05 by mabuchwa          #+#    #+#             */
-/*   Updated: 2015/12/03 15:19:32 by mabuchwa         ###   ########.fr       */
+/*   Updated: 2016/05/26 16:08:38 by mabuchwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,7 @@ char	**ft_strsplit(char const *s, char c)
 	if (s == NULL)
 		return (NULL);
 	words = ft_count_words((char const*)s, c);
-	if (!(tab = (char**)malloc(sizeof(*tab) *
-			(ft_count_words((char const*)s, c) + 1))))
+	if (!(tab = (char**)malloc(sizeof(*tab) * (words + 1))))
 		return (NULL);
 	while (words--)
 	{

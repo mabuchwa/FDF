@@ -6,7 +6,7 @@
 /*   By: mabuchwa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/08 10:55:34 by mabuchwa          #+#    #+#             */
-/*   Updated: 2016/05/11 18:46:20 by mabuchwa         ###   ########.fr       */
+/*   Updated: 2016/05/26 16:47:20 by mabuchwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,10 @@ typedef struct		s_win
 	int				lenx;
 	int				leny;
 	int				map_h;
+	int				size;
+	int				psize;
 	int				map_w;
 	int				fd;
-	int				ok;
 }					t_win;
 
 typedef struct		s_point
@@ -71,12 +72,14 @@ typedef struct		s_point
 }					t_pts;
 
 t_map				*ft_parsing(t_win *w);
+void				ft_init(t_win *w);
 void				calc(t_win *win, int i);
 void				draw(t_win *w, t_pts *pts1, t_pts *pts2, float len);
 void				draw_map(t_pts *pts, t_win *w);
 int					tab_len(t_lst *lst);
 void				lst_pushback(t_lst **list, t_lst *new);
 void				get_height(t_lst *lst, t_map *map);
+void				print_selection(t_win *w);
 void				freedom(char **tab);
 void				center_map(t_win *w, t_pts *pts, int total);
 int					color(t_pts pts, t_win *w);

@@ -6,7 +6,7 @@
 /*   By: mabuchwa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/21 14:17:51 by mabuchwa          #+#    #+#             */
-/*   Updated: 2016/05/11 14:50:03 by mabuchwa         ###   ########.fr       */
+/*   Updated: 2016/05/26 16:11:51 by mabuchwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int		tab_len(t_lst *lst)
 
 	i = 0;
 	tab = ft_strsplit(lst->data, ' ');
-	while (tab[i] != NULL)
+	while (tab[i + 1])
 		i++;
 	freedom(tab);
 	return (i);

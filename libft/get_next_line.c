@@ -6,7 +6,7 @@
 /*   By: mabuchwa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 16:14:40 by mabuchwa          #+#    #+#             */
-/*   Updated: 2016/04/09 11:43:37 by mabuchwa         ###   ########.fr       */
+/*   Updated: 2016/05/26 13:33:16 by mabuchwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int		get_next_line(int const fd, char **line)
 	{
 		buf[ret] = '\0';
 		if (ret < 0)
-			return (-1);
+			exit(-1);
 		rest = ft_strjoin(rest, buf);
 		rest = get_line(rest, line);
 		if (*line != NULL)
