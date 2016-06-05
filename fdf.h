@@ -6,7 +6,7 @@
 /*   By: mabuchwa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/08 10:55:34 by mabuchwa          #+#    #+#             */
-/*   Updated: 2016/05/26 16:47:20 by mabuchwa         ###   ########.fr       */
+/*   Updated: 2016/06/05 16:18:23 by mabuchwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct		s_win
 	int				psize;
 	int				map_w;
 	int				fd;
+	int				len;
 }					t_win;
 
 typedef struct		s_point

@@ -6,7 +6,7 @@
 /*   By: mabuchwa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 17:39:13 by mabuchwa          #+#    #+#             */
-/*   Updated: 2016/05/26 16:35:38 by mabuchwa         ###   ########.fr       */
+/*   Updated: 2016/06/05 14:51:52 by mabuchwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	print_selection(t_win *w)
 
 	i = 0;
 	y = 0;
-	str = (char**)malloc(sizeof(char*) * 9);
-	str[8] = 0;
+	str = (char**)malloc(sizeof(char*) * 10);
+	str[9] = 0;
 	str[0] = "+ = zoom avant";
 	str[1] = "- = zoom arriere";
 	str[2] = "u = augmenter altitude";
@@ -30,6 +30,7 @@ void	print_selection(t_win *w)
 	str[5] = "fleche bas = deplacement bas";
 	str[6] = "fleche gauche = deplacement gauche";
 	str[7] = "fleche bas = deplacement bas";
+	str[8] = "return = reset map";
 	while (str[i])
 	{
 		mlx_string_put(w->init, w->win, 5, y, 0x00FFFFFF, str[i]);

@@ -6,7 +6,7 @@
 /*   By: mabuchwa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/29 11:31:36 by mabuchwa          #+#    #+#             */
-/*   Updated: 2016/05/26 16:11:13 by mabuchwa         ###   ########.fr       */
+/*   Updated: 2016/06/05 16:38:08 by mabuchwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,9 @@ t_map	*get_coor(t_win *w, t_lst *lst)
 	map[w->map_h].size = 0;
 	while (tmp != NULL && i < w->map_h)
 	{
-		map[i].size = tab_len(lst);
+		map[i].size = tab_len(tmp);
+		if (map[0].size != map[i].size)
+			exit(1);
 		tmp = tmp->next;
 		i++;
 	}

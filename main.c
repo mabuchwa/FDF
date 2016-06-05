@@ -6,7 +6,7 @@
 /*   By: mabuchwa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/19 13:43:40 by mabuchwa          #+#    #+#             */
-/*   Updated: 2016/05/26 17:09:51 by mabuchwa         ###   ########.fr       */
+/*   Updated: 2016/06/05 16:18:33 by mabuchwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ int		main(int ac, char **av)
 	static t_win	w;
 
 	w.size = 0;
+	w.len = 0;
 	if (ac == 2)
 	{
 		w.path = av[1];
@@ -99,5 +100,9 @@ int		main(int ac, char **av)
 	}
 	if (ac < 2)
 		ft_putstr("Insert Map\n");
+	else if (ac > 2)
+	{
+		ft_putstr("Insert valid params\n");
+	}
 	return (0);
 }
